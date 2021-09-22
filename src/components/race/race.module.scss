@@ -1,0 +1,11 @@
+$color: white;
+
+.race {
+  background: $color;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  max-width: 800px;
+}
