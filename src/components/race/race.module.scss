@@ -6,6 +6,27 @@ $color: white;
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: 70px 1fr 1fr 2fr 2fr 3fr 1fr 50px;
   max-width: 800px;
+
+  div {
+    padding: 2px;
+    border: 1px dotted #c2c9d4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.head {
+  background: #385a86;
+
+  div {
+    color: white;
+  }
+
+  div {
+    overflow: visible;
+    white-space: break-spaces;
+  }
 }
