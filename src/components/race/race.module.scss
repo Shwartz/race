@@ -9,6 +9,10 @@ $color: white;
   grid-template-columns: 70px 1fr 1fr 2fr 2fr 3fr 1fr 50px;
   max-width: 800px;
 
+  &.gridNine {
+    grid-template-columns: 70px 70px 1fr 1fr 2fr 2fr 3fr 1fr 50px;
+  }
+
   div {
     padding: 2px;
     border: 1px dotted #c2c9d4;

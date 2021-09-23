@@ -2,42 +2,11 @@ import React, {useState} from 'react';
 import {data} from '../data/data';
 
 import styles from './race.module.scss';
+import {createTableAll} from "../../utils/tableAll";
+import {createTableByGroup} from "../../utils/tableByGroup";
 
 export const Race = () => {
   const [showBy, setShowBy] = useState('all')
-
-  const head = (
-    <div className={`${styles.grid} ${styles.head}`}>
-      <div>Position all</div>
-      <div>Time</div>
-      <div>Race Nr</div>
-      <div>First Name</div>
-      <div>Last Name</div>
-      <div>Club</div>
-      <div>Gender</div>
-      <div>Age</div>
-    </div>
-  )
-
-  const createTable = (raceData, title = null) => {
-    const raceTitle = title ? <h3>{title}</h3> : null;
-    const table = raceData.map((row, i) => {
-      return (
-        <div className={styles.grid} key={i}>
-          <div>{row.position}</div>
-          <div>{row.time}</div>
-          <div>{row.raceNumber}</div>
-          <div>{row.firstName}</div>
-          <div>{row.lastName}</div>
-          <div title={row.club}>{row.club}</div>
-          <div>{row.gender}</div>
-          <div>{row.age}</div>
-        </div>
-      );
-    });
-
-    return [raceTitle, head, table];
-  };
 
   const showByAge = (raceData) => {
     const age19 = raceData.filter(row => row.age < 20);
@@ -46,32 +15,46 @@ export const Race = () => {
     const age49 = raceData.filter(row => row.age < 50 && row.age > 39);
     const age59 = raceData.filter(row => row.age < 60 && row.age > 49);
     const age100 = raceData.filter(row => row.age > 59);
-    return [
-      createTable(age19, 'Under 20'),
-      createTable(age29, 'Under 30'),
-      createTable(age39, 'Under 40'),
-      createTable(age49, 'Under 50'),
-      createTable(age59, 'Under 60'),
-      createTable(age100, 'Seniors'),
-    ];
+    return (
+      <>
+        {createTableByGroup(age19, 'Under 20')}
+        {createTableByGroup(age29, 'Under 30')}
+        {createTableByGroup(age39, 'Under 40')}
+        {createTableByGroup(age49, 'Under 50')}
+        {createTableByGroup(age59, 'Under 60')}
+        {createTableByGroup(age100, 'Seniors')}
+      </>
+    )
+  }
+
+  const showByGender = (raceData) => {
+    const female = raceData.filter(row => row.gender === 'Female');
+    const male = raceData.filter(row => row.gender === 'Male');
+
+    return (
+      <>
+        {createTableByGroup(female, 'Female')}
+        {createTableByGroup(male, 'male')}
+      </>
+    )
   }
 
   let table;
   switch (showBy) {
     case 'all':
-      table = createTable(data);
+      table = createTableAll(data, 'All results');
       break;
     case 'byAge':
       table = showByAge(data);
       break;
     case 'byGender':
-      table = <div>gender</div>;
+      table = showByGender(data);
       break;
     default:
-      table = createTable(data);
+      table = createTableAll(data, 'All results');
   }
 
-  const showAllHandler = (filter) => () => setShowBy(filter);
+  const showAllHandler = (filterBy) => () => setShowBy(filterBy);
 
   return (
     <div className={styles.race}>
