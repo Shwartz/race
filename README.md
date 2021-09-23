@@ -1,4 +1,9 @@
-# Getting Started with Create React App
+# Filtered Race results done with ReactJS app  
+
+Simple app takes Array of Objects and creates filters by age and gender
+
+
+### ReactJS bit
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
