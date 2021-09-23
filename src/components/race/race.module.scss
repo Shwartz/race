@@ -1,17 +1,7 @@
-$color: white;
-
-.race {
-  background: $color;
-}
-
-.grid {
+.grid8, .grid9 {
   display: grid;
-  grid-template-columns: 70px 1fr 1fr 2fr 2fr 3fr 1fr 50px;
+  min-width: 600px;
   max-width: 800px;
-
-  &.gridNine {
-    grid-template-columns: 70px 70px 1fr 1fr 2fr 2fr 3fr 1fr 50px;
-  }
 
   div {
     padding: 2px;
@@ -19,6 +9,46 @@ $color: white;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+}
+
+.grid8 {
+  grid-template-columns: 70px 1fr 1fr 2fr 2fr 3fr 1fr 50px;
+}
+
+.grid9 {
+  grid-template-columns: 70px 70px 1fr 1fr 2fr 2fr 3fr 1fr 50px;
+}
+
+.race {
+  display: flex;
+  justify-content: center;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+
+  button {
+    margin: 8px 4px;
+    padding: 4px 8px;
+    border: 1px solid #385a86;
+    background: white;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+    transition: 0.2s;
+
+    &:hover {
+      background: #385a86;
+      color: white;
+    }
+  }
+
+  .current {
+    background: #385a86;
+    color: white;
+    box-shadow: none;
   }
 }
 

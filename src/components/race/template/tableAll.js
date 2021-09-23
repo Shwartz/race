@@ -1,8 +1,8 @@
-import styles from "../components/race/race.module.scss";
+import styles from "../race.module.scss";
 import React from "react";
 
 const head = (
-  <div className={`${styles.grid} ${styles.head}`}>
+  <div className={`${styles.grid8} ${styles.head}`}>
     <div>Position all</div>
     <div>Time</div>
     <div>Race Nr</div>
@@ -18,7 +18,7 @@ export const createTableAll = (raceData, title = null) => {
   const raceTitle = title ? <h3>{title}</h3> : null;
   const table = raceData.map((row, i) => {
     return (
-      <div className={styles.grid} key={i.toString()}>
+      <div className={styles.grid8} key={i.toString()}>
         <div>{row.position}</div>
         <div>{row.time}</div>
         <div>{row.raceNumber}</div>

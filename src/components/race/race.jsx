@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import {data} from '../data/data';
 
 import styles from './race.module.scss';
-import {createTableAll} from "../../utils/tableAll";
-import {createTableByGroup} from "../../utils/tableByGroup";
+import {createTableAll} from "./template/tableAll";
+import {createTableByGroup} from "./template/tableByGroup";
 
 export const Race = () => {
   const [showBy, setShowBy] = useState('all')
@@ -56,12 +56,20 @@ export const Race = () => {
 
   const showAllHandler = (filterBy) => () => setShowBy(filterBy);
 
+  const isCurrent = (current) => (current === showBy) ? styles.current : '';
+
   return (
-    <div className={styles.race}>
-      <button onClick={showAllHandler('all')} type="button">Show all results</button>
-      <button onClick={showAllHandler('byAge')} type="button">Show by age</button>
-      <button onClick={showAllHandler('byGender')} type="button">Show by gender</button>
-      {table}
-    </div>
+    <>
+      <div className={styles.navigation}>
+        <button className={isCurrent('all')} onClick={showAllHandler('all')} type="button">Show all results</button>
+        <button className={isCurrent('byAge')} onClick={showAllHandler('byAge')} type="button">Show by age</button>
+        <button className={isCurrent('byGender')} onClick={showAllHandler('byGender')} type="button">Show by gender</button>
+      </div>
+      <div className={styles.race}>
+        <div>
+          {table}
+        </div>
+      </div>
+    </>
   )
 }
