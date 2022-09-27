@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import {ResultsTable} from "./ResultsTable";
 import styles from './race.module.scss';
 
-import {createTableByGroup} from "./template/tableByGroup";
-
 export const Race = () => {
   const [sortBy, setSortBy] = useState('all');
   const [currentYear, setCurrentYear] = useState('2022');

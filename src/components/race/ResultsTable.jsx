@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {TableAll} from "./template/tableAll";
-import {sortByAge} from "../../utils";
+import {sortByAge, sortByGender} from "../../utils";
 
 const path = {
   '2021': '/race/data/data-202109.json',
@@ -9,11 +9,9 @@ const path = {
 
 export const ResultsTable = ({currentYear, sortBy}) => {
   const [years, setYears] = useState({});
-  console.log({currentYear, sortBy});
 
   // data get by year
   useEffect(() => {
-    console.log('request', years?.[currentYear]?.length);
     if (years?.[currentYear]?.length) return;
 
     try {
@@ -29,29 +27,25 @@ export const ResultsTable = ({currentYear, sortBy}) => {
       console.log('Error: ', err);
     }
   }, [currentYear, sortBy]);
-  console.log('-- 1 years: ', years);
-  console.log('-- 2 years: ', years[currentYear]);
 
   let table;
   switch (sortBy) {
     case 'all':
-      // table = createTableAll(data202109, 'All results');
-      table = <TableAll raceData={years[currentYear]} title="All results" />
+      table = <TableAll raceData={years[currentYear]} title={`All results - ${currentYear}`} />
       break;
     case 'byAge':
       table = sortByAge(years[currentYear]);
       break;
     case 'byGender':
-      // table = sortByGender(data202109);
+      table = sortByGender(years[currentYear]);
       break;
     default:
       table = <TableAll raceData={years[currentYear]} title="All results" />
   }
 
   return (
-    <div>
-      <p>boom</p>
+    <>
       {years?.[currentYear] && table}
-    </div>
+    </>
   )
 }
