@@ -10,6 +10,9 @@ export const Race = () => {
 
   return (
     <>
+      <p className={styles.headline}>This Web app uses the data from the
+        <a href="https://www.trionium.com/ashtead10k/"> Trionium website </a> to create sorting by age and gender.
+      </p>
       <div className={styles.navigation}>
         <button className={isCurrent('2022', currentYear)} onClick={() => setCurrentYear('2022')} type="button">2022</button>
         <button className={isCurrent('2021', currentYear)} onClick={() => setCurrentYear('2021')} type="button">2021</button>
