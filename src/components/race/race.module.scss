@@ -23,6 +23,18 @@
 .race {
   display: flex;
   justify-content: center;
+  margin-bottom: 24px;
+}
+
+.headline {
+  margin: 8px auto 16px;
+  max-width: 500px;
+  text-align: center;
+  color: gray;
+
+  a {
+    color: #385a86;
+  }
 }
 
 .navigation {

@@ -15,9 +15,9 @@ const head = (
   </div>
 )
 
-export const createTableByGroup = (raceData, title = null) => {
+export const CreateTableByGroup = ({data, title = null}) => {
   const raceTitle = title ? <h3>{title}</h3> : null;
-  const table = raceData.map((row, i) => {
+  const table = data.map((row, i) => {
     return (
       <div className={`${styles.grid9}`} key={i.toString()}>
         <div>{row.position}</div>
