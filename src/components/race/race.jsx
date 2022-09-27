@@ -1,73 +1,32 @@
 import React, {useState} from 'react';
-import {data} from '../data/data';
-
+import {ResultsTable} from "./ResultsTable";
 import styles from './race.module.scss';
-import {createTableAll} from "./template/tableAll";
+
 import {createTableByGroup} from "./template/tableByGroup";
 
 export const Race = () => {
-  const [showBy, setShowBy] = useState('all')
+  const [sortBy, setSortBy] = useState('all');
+  const [currentYear, setCurrentYear] = useState('2022');
 
-  const showByAge = (raceData) => {
-    const age19 = raceData.filter(row => row.age < 20);
-    const age29 = raceData.filter(row => row.age < 30 && row.age > 19);
-    const age39 = raceData.filter(row => row.age < 40 && row.age > 29);
-    const age49 = raceData.filter(row => row.age < 50 && row.age > 39);
-    const age59 = raceData.filter(row => row.age < 60 && row.age > 49);
-    const age100 = raceData.filter(row => row.age > 59);
-    return (
-      <>
-        {createTableByGroup(age19, 'Under 20')}
-        {createTableByGroup(age29, 'Under 30')}
-        {createTableByGroup(age39, 'Under 40')}
-        {createTableByGroup(age49, 'Under 50')}
-        {createTableByGroup(age59, 'Under 60')}
-        {createTableByGroup(age100, 'Seniors')}
-      </>
-    )
-  }
-
-  const showByGender = (raceData) => {
-    const female = raceData.filter(row => row.gender === 'Female');
-    const male = raceData.filter(row => row.gender === 'Male');
-
-    return (
-      <>
-        {createTableByGroup(female, 'Female')}
-        {createTableByGroup(male, 'male')}
-      </>
-    )
-  }
-
-  let table;
-  switch (showBy) {
-    case 'all':
-      table = createTableAll(data, 'All results');
-      break;
-    case 'byAge':
-      table = showByAge(data);
-      break;
-    case 'byGender':
-      table = showByGender(data);
-      break;
-    default:
-      table = createTableAll(data, 'All results');
-  }
-
-  const showAllHandler = (filterBy) => () => setShowBy(filterBy);
-
-  const isCurrent = (current) => (current === showBy) ? styles.current : '';
+  const isCurrent = (current, param) => (current === param) ? styles.current : '';
 
   return (
     <>
       <div className={styles.navigation}>
-        <button className={isCurrent('all')} onClick={showAllHandler('all')} type="button">Show all results</button>
-        <button className={isCurrent('byAge')} onClick={showAllHandler('byAge')} type="button">Show by age</button>
-        <button className={isCurrent('byGender')} onClick={showAllHandler('byGender')} type="button">Show by gender</button>
+        <button className={isCurrent('2022', currentYear)} onClick={() => setCurrentYear('2022')} type="button">2022</button>
+        <button className={isCurrent('2021', currentYear)} onClick={() => setCurrentYear('2021')} type="button">2021</button>
+      </div>
+      <div className={styles.navigation}>
+        <button className={isCurrent('all', sortBy)} onClick={() => setSortBy('all')} type="button">Show all results</button>
+        <button className={isCurrent('byAge', sortBy)} onClick={() => setSortBy('byAge')} type="button">Show by age</button>
+        <button className={isCurrent('byGender', sortBy)} onClick={() => setSortBy('byGender')} type="button">Show by gender</button>
       </div>
       <div className={styles.race}>
         <div>
-          {table}
+          <ResultsTable
+            currentYear={currentYear}
+            sortBy={sortBy}
+          />
         </div>
       </div>
     </>

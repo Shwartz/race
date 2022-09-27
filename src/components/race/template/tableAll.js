@@ -14,7 +14,7 @@ const head = (
   </div>
 )
 
-export const createTableAll = (raceData, title = null) => {
+export const TableAll = ({raceData, title = null}) => {
   const raceTitle = title ? <h3>{title}</h3> : null;
   const table = raceData.map((row, i) => {
     return (
