@@ -1,22 +1,13 @@
 {
   "files": {
-    "main.css": "/race/static/css/main.e1540d61.chunk.css",
-    "main.js": "/race/static/js/main.ef851922.chunk.js",
-    "main.js.map": "/race/static/js/main.ef851922.chunk.js.map",
-    "runtime-main.js": "/race/static/js/runtime-main.d7ffb48b.js",
-    "runtime-main.js.map": "/race/static/js/runtime-main.d7ffb48b.js.map",
-    "static/js/2.4b70a4c4.chunk.js": "/race/static/js/2.4b70a4c4.chunk.js",
-    "static/js/2.4b70a4c4.chunk.js.map": "/race/static/js/2.4b70a4c4.chunk.js.map",
-    "static/js/3.4ecccd75.chunk.js": "/race/static/js/3.4ecccd75.chunk.js",
-    "static/js/3.4ecccd75.chunk.js.map": "/race/static/js/3.4ecccd75.chunk.js.map",
+    "main.css": "/race/static/css/main.29546ed8.css",
+    "main.js": "/race/static/js/main.82bbe91c.js",
     "index.html": "/race/index.html",
-    "static/css/main.e1540d61.chunk.css.map": "/race/static/css/main.e1540d61.chunk.css.map",
-    "static/js/2.4b70a4c4.chunk.js.LICENSE.txt": "/race/static/js/2.4b70a4c4.chunk.js.LICENSE.txt"
+    "main.29546ed8.css.map": "/race/static/css/main.29546ed8.css.map",
+    "main.82bbe91c.js.map": "/race/static/js/main.82bbe91c.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.d7ffb48b.js",
-    "static/js/2.4b70a4c4.chunk.js",
-    "static/css/main.e1540d61.chunk.css",
-    "static/js/main.ef851922.chunk.js"
+    "static/css/main.29546ed8.css",
+    "static/js/main.82bbe91c.js"
   ]
 }
