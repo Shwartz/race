@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/race/static/css/main.29546ed8.css",
-    "main.js": "/race/static/js/main.82bbe91c.js",
+    "main.js": "/race/static/js/main.c953a9dd.js",
     "index.html": "/race/index.html",
     "main.29546ed8.css.map": "/race/static/css/main.29546ed8.css.map",
-    "main.82bbe91c.js.map": "/race/static/js/main.82bbe91c.js.map"
+    "main.c953a9dd.js.map": "/race/static/js/main.c953a9dd.js.map"
   },
   "entrypoints": [
     "static/css/main.29546ed8.css",
-    "static/js/main.82bbe91c.js"
+    "static/js/main.c953a9dd.js"
   ]
 }
