@@ -34,10 +34,10 @@ export const ResultsTable = ({currentYear, sortBy}) => {
       table = <TableAll raceData={years[currentYear]} title={`All results - ${currentYear}`} />
       break;
     case 'byAge':
-      table = sortByAge(years[currentYear]);
+      table = sortByAge(years[currentYear] || []);
       break;
     case 'byGender':
-      table = sortByGender(years[currentYear]);
+      table = sortByGender(years[currentYear] || []);
       break;
     default:
       table = <TableAll raceData={years[currentYear]} title="All results" />
